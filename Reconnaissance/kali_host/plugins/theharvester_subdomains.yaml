@@ -1,0 +1,34 @@
+tool_id: theharvester_subdomains
+name: theHarvester (Subdomains)
+description: "Use theHarvester to discover subdomains and hosts for a target domain (CLI-based, best-effort on Windows)."
+category: OSINT
+module_path: kali_host.tools.theharvester_subdomains
+entry_function: run
+icon: search
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [osint, subdomains, hosts, theharvester]
+
+params:
+  - name: domain
+    label: "Target Domain"
+    param_type: domain
+    required: true
+    placeholder: "example.com"
+    help_text: "Domain to gather host and subdomain information about."
+
+  - name: sources
+    label: "Data Sources"
+    param_type: string
+    required: false
+    default: "all"
+    placeholder: "all or comma-separated sources"
+    help_text: "Use 'all' or a comma-separated list of specific theHarvester sources."
+
+  - name: limit
+    label: "Result Limit per Source"
+    param_type: integer
+    required: false
+    default: 500
+    help_text: "Limit the number of results per source."

@@ -1,0 +1,88 @@
+{
+  "_comment": "Replace 'your-key' with real values. Save to ~/.kali_tools/api_keys.json or use Settings > API Keys in the app.",
+
+  "google_api_key":       "your-key",
+  "google_cse_id":        "your-key",
+  "bing_api_key":         "your-key",
+  "baidu_api":            "your-key",
+  "duckduckgo_api":       "your-key",
+  "yahoo_api":            "your-key",
+
+  "shodan":               "your-key",
+  "censys":               "your-key",
+  "binaryedge":           "your-key",
+  "fullhunt":             "your-key",
+  "zoomeye":              "your-key",
+  "onyphe":               "your-key",
+  "netlas":               "your-key",
+  "fofa":                 "your-key",
+  "leakix":               "your-key",
+
+  "abuseipdb":            "your-key",
+  "greynoise":            "your-key",
+  "ipinfo":               "your-key",
+  "ipstack":              "your-key",
+  "ipqualityscore":       "your-key",
+  "maxmind_account_id":   "your-key",
+  "maxmind_license_key":  "your-key",
+
+  "alienvault":           "your-key",
+  "virustotal":           "your-key",
+  "hybrid_analysis":      "your-key",
+  "threatfox":            "your-key",
+  "malwarebazaar":        "your-key",
+  "urlhaus":              "your-key",
+
+  "breachdirectory":      "your-key",
+  "dehashed":             "your-key",
+  "leakcheck":            "your-key",
+  "xposed":               "your-key",
+
+  "securitytrails":       "your-key",
+  "whoisxml":             "your-key",
+  "passivetotal":         "your-key",
+  "dnsdb":                "your-key",
+
+  "hunter":               "your-key",
+  "emailrep":             "your-key",
+  "rocketreach":          "your-key",
+  "clearbit":             "your-key",
+  "knowem":               "your-key",
+
+  "urlscan":              "your-key",
+  "ssllabs_api":          "your-key",
+  "certspotter":          "your-key",
+
+  "github":               "your-key",
+  "gitlab":               "your-key",
+  "bitbucket":            "your-key",
+
+  "x":                    "your-key",
+  "facebook_api":         "your-key",
+  "instagram_api":        "your-key",
+  "linkedin_api":         "your-key",
+  "reddit_api":           "your-key",
+  "youtube_api":          "your-key",
+
+  "intelx":               "your-key",
+  "pastebin":             "your-key",
+  "google_cse":           "your-key",
+
+  "opencage":             "your-key",
+  "wigle":                "your-key",
+  "mapbox":               "your-key",
+
+  "theharvester_shodan":  "your-key",
+  "theharvester_bing":    "your-key",
+  "theharvester_github":  "your-key",
+  "theharvester_google":  "your-key",
+  "recon_ng_default":     "your-key",
+  "maltego_api":          "your-key",
+  "ghostproject_api":     "your-key",
+  "sherlock_enhanced":    "your-key",
+
+  "axe_api":              "your-key",
+  "ssrnedb":              "your-key",
+  "criminalip":           "your-key",
+  "shodan_iocs":          "your-key"
+}

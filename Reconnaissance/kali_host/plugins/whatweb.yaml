@@ -1,0 +1,35 @@
+tool_id: whatweb
+name: Web Tech Fingerprinter
+description: "Pure Python web technology fingerprinting - detects CMS, frameworks, JavaScript libraries, web servers, and more using HTTP headers and HTML signatures"
+category: Web Recon
+module_path: kali_host.tools.whatweb
+entry_function: run
+icon: globe
+version: "1.0.0"
+author: "Community (Python port)"
+requires_root: false
+tags: [web, fingerprinting, cms, technology, reconnaissance, python]
+
+params:
+  - name: target
+    label: "Target URL"
+    param_type: string
+    required: true
+    placeholder: "https://example.com"
+    help_text: "Target website URL to fingerprint (HTTP or HTTPS)"
+
+  - name: timeout
+    label: "Request Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: "10"
+    help_text: "How long to wait for the server to respond before timing out"
+    default: true
+    help_text: "Follow HTTP redirects"
+
+  - name: max_redirects
+    label: "Max Redirects"
+    param_type: integer
+    required: false
+    default: 10
+    help_text: "How long to wait for the server to respond before timing out"

@@ -1,0 +1,34 @@
+tool_id: cloud_detect
+name: Cloud Provider Detection
+description: "Identify which cloud provider (AWS, Azure, GCP, Cloudflare, Fastly, Oracle) owns discovered IP addresses. Uses official published IP range lists with local caching."
+category: OSINT
+module_path: kali_host.tools.cloud_detect
+entry_function: run
+icon: cloud
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, cloud, aws, azure, gcp, cloudflare, ip, infrastructure, osint]
+
+params:
+  - name: targets
+    label: "Target IPs"
+    param_type: string
+    required: true
+    placeholder: "1.2.3.4, 5.6.7.8"
+    help_text: "Comma-separated list of IP addresses to check"
+
+  - name: providers
+    label: "Providers to Check"
+    param_type: string
+    required: false
+    default: "all"
+    placeholder: "all  OR  AWS,Azure,GCP,Cloudflare"
+    help_text: "Comma-separated providers: AWS, GCP, Azure, Cloudflare, Fastly, Oracle — or 'all'"
+
+  - name: refresh_cache
+    label: "Refresh IP Range Cache"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Force re-download of provider IP ranges (cached for 24 hours by default)"

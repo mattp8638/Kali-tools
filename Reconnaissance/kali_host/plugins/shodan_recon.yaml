@@ -1,0 +1,33 @@
+tool_id: shodan_recon
+name: Shodan Recon
+description: "Shodan host lookup and search. Find exposed services, ports and banners by IP/hostname or search query."
+category: OSINT
+module_path: kali_host.tools.shodan_recon
+entry_function: run
+icon: globe
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [osint, shodan, internet, hosts, search, banners]
+
+params:
+  - name: ip_or_domain
+    label: "Target IP / Host"
+    param_type: string
+    required: false
+    placeholder: "8.8.8.8 or example.com"
+    help_text: "Single host lookup via Shodan.host(). Leave empty to use search mode."
+
+  - name: query
+    label: "Shodan Search Query"
+    param_type: string
+    required: false
+    placeholder: "org:\"Example Corp\" port:443"
+    help_text: "Shodan search query. Leave empty to use host lookup mode."
+
+  - name: api_key
+    label: "Shodan API Key"
+    param_type: string
+    required: false
+    placeholder: "Your Shodan API key"
+    help_text: "If empty, will try SHODAN_API_KEY environment variable."

@@ -1,0 +1,89 @@
+tool_id: full_recon_profile
+name: Full Recon Profile
+description: "Run all applicable recon tools for a target and produce a consolidated CSV + Markdown report."
+category: OSINT
+module_path: kali_host.tools.full_recon_profile
+entry_function: run
+icon: chart
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [osint, recon, profile, report, automation, csv]
+
+params:
+  - name: domain
+    label: "Target Domain"
+    param_type: domain
+    required: false
+    placeholder: "example.com"
+    help_text: "Target domain. Drives DNS, web and harvester tools."
+
+  - name: ip
+    label: "Target IP"
+    param_type: ip_address
+    required: false
+    placeholder: "192.168.1.1"
+    help_text: "Target IP address. Drives network scan and Shodan lookup."
+
+  - name: email
+    label: "Target Email"
+    param_type: string
+    required: false
+    placeholder: "admin@example.com"
+    help_text: "Target email. Drives Email OSINT (DNS, breaches, social signals)."
+
+  - name: username
+    label: "Target Username"
+    param_type: string
+    required: false
+    placeholder: "johndoe"
+    help_text: "Target username. Drives Username OSINT Plus (Sherlock, GitHub, etc.)."
+
+  - name: run_network
+    label: "Run Network Tools"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Include Nmap scan."
+
+  - name: run_dns
+    label: "Run DNS Tools"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Include DNS recon, subdomain enum and WHOIS."
+
+  - name: run_web
+    label: "Run Web Tools"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Include HTTP headers, SSL cert, WhatWeb, WAF detection."
+
+  - name: run_osint
+    label: "Run OSINT Tools"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Include theHarvester, Shodan, Email OSINT, Username OSINT Plus."
+
+  - name: shodan_api_key
+    label: "Shodan API Key"
+    param_type: string
+    required: false
+    placeholder: "Your Shodan API key"
+    help_text: "Required for Shodan lookups. Falls back to SHODAN_API_KEY env var."
+
+  - name: breachdirectory_api_key
+    label: "BreachDirectory API Key"
+    param_type: string
+    required: false
+    placeholder: "Optional - free access available"
+    help_text: "BreachDirectory API key for breach checks (free tier available without key)."
+
+  - name: output_dir
+    label: "Output Directory"
+    param_type: file_path
+    required: false
+    placeholder: "C:/Users/you/Reports"
+    help_text: "Where to save CSV and Markdown report. Defaults to ~/.kali_tools_temp."

@@ -1,0 +1,66 @@
+tool_id: nmap_scan
+name: Nmap Scan
+description: "Run Nmap for port scanning, service detection and basic OS fingerprinting."
+category: Network Discovery
+module_path: kali_host.tools.nmap_scan
+entry_function: run
+icon: network
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, nmap, ports, services, os-detect]
+
+params:
+  - name: target
+    label: "Target (IP/Host/CIDR)"
+    param_type: string
+    required: true
+    placeholder: "192.168.1.0/24"
+    help_text: "Single host, range or CIDR to scan."
+
+  - name: ports
+    label: "Ports"
+    param_type: string
+    required: false
+    placeholder: "1-1000 or 80,443"
+    help_text: "Port range or list, leave blank for Nmap defaults."
+
+  - name: scan_type
+    label: "Scan Type"
+    param_type: choice
+    required: true
+    default: "SYN"
+    choices:
+      - "SYN"
+      - "Connect"
+      - "UDP"
+      - "Ping Sweep"
+    help_text: "Choose SYN (stealth), full connect, UDP or ping-only."
+
+  - name: os_detect
+    label: "Enable OS Detection (-O)"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Requires sufficient privileges and responses."
+
+  - name: service_versions
+    label: "Service Version Detection (-sV)"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Probe services to detect versions."
+
+  - name: scripts
+    label: "NSE Scripts"
+    param_type: string
+    required: false
+    placeholder: "vuln,http-title"
+    help_text: "Comma-separated scripts or categories for --script."
+
+  - name: extra_args
+    label: "Extra Nmap Args"
+    param_type: string
+    required: false
+    placeholder: "-Pn -T4"
+    help_text: "Additional Nmap CLI flags."

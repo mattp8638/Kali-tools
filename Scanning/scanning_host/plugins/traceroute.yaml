@@ -1,0 +1,29 @@
+tool_id: traceroute
+name: Traceroute
+description: "ICMP traceroute path mapping."
+category: Network Discovery
+module_path: scanning_host.tools.traceroute
+entry_function: run
+icon: scan
+version: "1.0.0"
+author: "Scanning App"
+requires_root: false
+tags: [network,path,icmp]
+
+params:
+  - name: target
+    label: "Target Host"
+    param_type: string
+    required: true
+
+  - name: max_hops
+    label: "Max Hops"
+    param_type: integer
+    required: false
+    default: 20
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 2

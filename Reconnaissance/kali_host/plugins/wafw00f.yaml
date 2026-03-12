@@ -1,0 +1,47 @@
+tool_id: wafw00f
+name: Wafw00f
+description: "Web Application Firewall (WAF) detection and fingerprinting - identifies protection systems like Cloudflare, Akamai, AWS WAF, etc."
+category: Web Recon
+module_path: kali_host.tools.wafw00f
+entry_function: run
+icon: shield
+version: "2.2.0"
+author: "Sandro Gauci"
+requires_root: false
+tags: [web, waf, firewall, security, detection]
+
+params:
+  - name: target
+    label: "Target URL"
+    param_type: string
+    required: true
+    placeholder: "https://example.com"
+    help_text: "Target website URL to test for WAF"
+
+  - name: list_wafs
+    label: "List All WAF Signatures"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Display all known WAF signatures (informational only)"
+
+  - name: test_all
+    label: "Test All WAFs"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Test for all WAFs instead of stopping at first match"
+
+  - name: follow_redirects
+    label: "Follow Redirects"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Follow HTTP redirects"
+
+  - name: proxy
+    label: "Proxy URL"
+    param_type: string
+    required: false
+    placeholder: "http://proxy:8080"
+    help_text: "Proxy to use for requests (optional)"

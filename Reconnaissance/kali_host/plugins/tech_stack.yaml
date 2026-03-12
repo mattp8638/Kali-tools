@@ -1,0 +1,33 @@
+tool_id: tech_stack
+name: Tech Stack Detection
+description: "Wappalyzer-style technology fingerprinting from HTTP responses. Identifies CMS, frameworks, JS libraries, analytics, CDN, and WAF purely from headers and HTML."
+category: Web Recon
+module_path: kali_host.tools.tech_stack
+entry_function: run
+icon: code
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, web, fingerprint, cms, framework, wappalyzer, headers, tech]
+
+params:
+  - name: target
+    label: "Target URL"
+    param_type: string
+    required: true
+    placeholder: "https://example.com"
+    help_text: "URL or domain to fingerprint (http/https added automatically)"
+
+  - name: scan_paths
+    label: "Additional Paths"
+    param_type: string
+    required: false
+    placeholder: "/admin, /login, /api"
+    help_text: "Extra paths to scan for additional signatures (comma-separated)"
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: string
+    required: false
+    default: "10"
+    help_text: "HTTP request timeout per path"

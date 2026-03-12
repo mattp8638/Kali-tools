@@ -1,0 +1,19 @@
+tool_id: whois_lookup
+name: WHOIS Lookup
+description: "Domain/IP WHOIS registration information including registrar, dates, and nameservers."
+category: OSINT
+module_path: kali_host.tools.whois_lookup
+entry_function: run
+icon: info
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, whois, osint, registration]
+
+params:
+  - name: target
+    label: "Target"
+    param_type: string
+    required: true
+    placeholder: "example.com or 8.8.8.8"
+    help_text: "Domain name or IP address"

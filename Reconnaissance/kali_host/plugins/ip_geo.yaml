@@ -1,0 +1,33 @@
+tool_id: ip_geo
+name: IP Geolocation & ASN
+description: "Fast IP geolocation, ASN lookup, and ISP identification for one or multiple IPs or hostnames. Uses ip-api.com (free, no key required)."
+category: OSINT
+module_path: kali_host.tools.ip_geo
+entry_function: run
+icon: globe
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, ip, geolocation, asn, isp, osint, intel]
+
+params:
+  - name: targets
+    label: "Target IPs / Hostnames"
+    param_type: string
+    required: true
+    placeholder: "1.2.3.4, example.com, 10.0.0.1"
+    help_text: "Comma-separated list of IP addresses or hostnames"
+
+  - name: resolve_hostnames
+    label: "Resolve Hostnames to IPs"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Automatically resolve domain names to IP addresses before lookup"
+
+  - name: ipinfo_api_key
+    label: "ipinfo.io API Key"
+    param_type: string
+    required: false
+    placeholder: "Optional — increases rate limit"
+    help_text: "ipinfo.io API key for higher rate limits (free tier: 50k req/month)"

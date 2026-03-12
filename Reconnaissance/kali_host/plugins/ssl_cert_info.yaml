@@ -1,0 +1,26 @@
+tool_id: ssl_cert_info
+name: SSL/TLS Certificate Info
+description: "Inspect TLS certificate subject/issuer, validity, SANs and cipher suite for any HTTPS service."
+category: Web Recon
+module_path: kali_host.tools.ssl_cert_info
+entry_function: run
+icon: lock
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [ssl, tls, certificate, web, recon]
+
+params:
+  - name: host
+    label: "Host"
+    param_type: string
+    required: true
+    placeholder: "example.com"
+    help_text: "Hostname of the TLS service (do not include https://)."
+
+  - name: port
+    label: "Port"
+    param_type: integer
+    required: false
+    default: 443
+    help_text: "TLS service port (default 443)."

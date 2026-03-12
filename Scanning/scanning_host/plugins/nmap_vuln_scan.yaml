@@ -1,0 +1,44 @@
+tool_id: nmap_vuln_scan
+name: Nmap Vulnerability Scan
+description: "Runs Nmap NSE vuln scripts against target services."
+category: Vulnerability
+module_path: scanning_host.tools.nmap_vuln_scan
+entry_function: run
+icon: scan
+version: "1.0.0"
+author: "Scanning App"
+requires_root: false
+tags: [nmap,vuln,nse]
+
+params:
+  - name: target
+    label: "Target Host"
+    param_type: string
+    required: true
+    placeholder: "example.com"
+
+  - name: ports
+    label: "Ports"
+    param_type: string
+    required: false
+    default: "1-1000"
+    help_text: "Nmap port spec, e.g. 80,443,8080 or 1-1000"
+
+  - name: script
+    label: "NSE Script Set"
+    param_type: string
+    required: false
+    default: "vuln"
+    help_text: "Use vuln or a specific script list"
+
+  - name: timing
+    label: "Timing Template (0-5)"
+    param_type: integer
+    required: false
+    default: 3
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 900

@@ -1,0 +1,90 @@
+tool_id: report
+name: Report Generator
+description: >-
+  Generate a formatted pentest report from aggregated tool findings.
+  Outputs self-contained HTML (offline, opens in Windows default browser),
+  JSON, plain TXT, or PDF (requires pip install reportlab on Windows).
+  Accepts findings as a JSON string or path to a saved JSON findings file.
+  Findings are severity-sorted (CRITICAL -> INFO), optionally filtered,
+  and rendered with cover page, executive summary, findings table, and
+  per-finding detail section. Auto-opens on Windows via os.startfile().
+category: Reporting
+module_path: Reporting.report
+entry_function: run
+icon: report
+version: "1.0.0"
+author: "Exploit Host"
+requires_root: false
+tags: [report, html, pdf, json, txt, findings, pentest, reporting]
+
+params:
+  - name: title
+    label: "Report Title"
+    param_type: string
+    required: false
+    default: "Pentest Report"
+    placeholder: "Q1 2026 Internal Network Assessment"
+    help_text: "Title shown on the report cover page."
+
+  - name: target
+    label: "Target / Scope"
+    param_type: string
+    required: false
+    placeholder: "192.168.1.0/24 or acme-corp.local"
+    help_text: "Target host, range or engagement scope description."
+
+  - name: operator
+    label: "Operator / Tester"
+    param_type: string
+    required: false
+    placeholder: "Your name or team"
+    help_text: "Name of the tester or team running the assessment."
+
+  - name: output_format
+    label: "Output Format"
+    param_type: choice
+    required: false
+    default: "html"
+    choices: ["html", "json", "txt", "pdf"]
+    help_text: >-
+      html: Self-contained offline HTML, opens in Windows browser.
+      json: Machine-readable findings dump.
+      txt:  Plain text summary for clipboard / notes.
+      pdf:  PDF via reportlab (pip install reportlab). Falls back to HTML if not installed.
+
+  - name: output_path
+    label: "Output File Path"
+    param_type: string
+    required: false
+    placeholder: "C:\\Users\\YourName\\Desktop\\report.html"
+    help_text: >-
+      Full Windows path to write the report.
+      Defaults to Desktop\\<title>.<ext> if left blank.
+
+  - name: findings_json
+    label: "Findings (JSON or file path)"
+    param_type: string
+    required: false
+    placeholder: "C:\\Users\\YourName\\Desktop\\findings.json  or  paste JSON array"
+    help_text: >-
+      Either a Windows path to a JSON file exported from a tool run, or a
+      raw JSON array of finding objects with keys: severity, title, target,
+      tool, detail.
+
+  - name: severity_filter
+    label: "Severity Filter"
+    param_type: choice
+    required: false
+    default: "all"
+    choices: ["all", "high_plus", "critical"]
+    help_text: >-
+      all: Include all severities.
+      high_plus: Only CRITICAL and HIGH.
+      critical: Only CRITICAL findings.
+
+  - name: auto_open
+    label: "Auto-open Report"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Automatically open the report in the default Windows browser/viewer after generation."

@@ -1,0 +1,39 @@
+tool_id: ftp_probe
+name: FTP Probe
+description: "FTP anonymous login check and listing probe."
+category: OSINT
+module_path: scanning_host.tools.ftp_probe
+entry_function: run
+icon: scan
+version: "1.0.0"
+author: "Scanning App"
+requires_root: false
+tags: [ftp,service,probe]
+
+params:
+  - name: target
+    label: "Target Host"
+    param_type: string
+    required: true
+
+  - name: port
+    label: "Port"
+    param_type: integer
+    required: false
+    default: 21
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 5
+
+  - name: username
+    label: "Username"
+    param_type: string
+    required: false
+
+  - name: password
+    label: "Password"
+    param_type: string
+    required: false

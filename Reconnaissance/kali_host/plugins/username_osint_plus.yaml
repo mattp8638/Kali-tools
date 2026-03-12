@@ -1,0 +1,68 @@
+tool_id: username_osint_plus
+name: Username OSINT Plus
+description: "Consolidated username reconnaissance: Sherlock social media scan + GitHub, Keybase, HackerNews, npm and PyPI presence checks."
+category: OSINT
+module_path: kali_host.tools.username_osint_plus
+entry_function: run
+icon: user
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [osint, username, sherlock, social, github, identity]
+
+params:
+  - name: username
+    label: "Target Username"
+    param_type: string
+    required: true
+    placeholder: "johndoe"
+    help_text: "Username to search for across social platforms and developer registries."
+
+  - name: run_sherlock
+    label: "Run Sherlock"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Run Sherlock CLI scan across 300+ social media sites."
+
+  - name: sherlock_timeout
+    label: "Sherlock Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 60
+    help_text: "Per-site timeout for Sherlock requests."
+
+  - name: check_github
+    label: "Check GitHub"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Query the GitHub API for this username."
+
+  - name: check_keybase
+    label: "Check Keybase"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Check Keybase for a profile and linked accounts."
+
+  - name: check_hackernews
+    label: "Check HackerNews"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Check Hacker News for an account with this username."
+
+  - name: check_npm
+    label: "Check npm"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Search npm registry for packages maintained by this username."
+
+  - name: check_pypi
+    label: "Check PyPI"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Check PyPI for a profile page with this username."

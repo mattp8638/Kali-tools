@@ -1,0 +1,29 @@
+tool_id: ssh_probe
+name: SSH Probe
+description: "Probe SSH version, key type, and cipher settings via paramiko."
+category: OSINT
+module_path: scanning_host.tools.ssh_probe
+entry_function: run
+icon: scan
+version: "1.0.0"
+author: "Scanning App"
+requires_root: false
+tags: [ssh,service,probe]
+
+params:
+  - name: target
+    label: "Target Host"
+    param_type: string
+    required: true
+
+  - name: port
+    label: "Port"
+    param_type: integer
+    required: false
+    default: 22
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 5

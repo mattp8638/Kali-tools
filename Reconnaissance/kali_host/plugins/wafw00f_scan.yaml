@@ -1,0 +1,40 @@
+tool_id: wafw00f_scan
+name: WAF Detection (wafw00f)
+description: "Detect Web Application Firewalls (WAF) protecting a target URL using wafw00f."
+category: Web Recon
+module_path: kali_host.tools.wafw00f_scan
+entry_function: run
+icon: shield
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [waf, web, recon, firewall]
+
+params:
+  - name: url
+    label: "Target URL"
+    param_type: string
+    required: true
+    placeholder: "https://example.com"
+    help_text: "The web application URL to test."
+
+  - name: generic_detection
+    label: "Generic Detection Heuristics"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Try to detect a WAF even if the vendor is unknown."
+
+  - name: force_ssl
+    label: "Force HTTPS"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Force HTTPS for the connection."
+
+  - name: extra_args
+    label: "Extra CLI Arguments"
+    param_type: string
+    required: false
+    placeholder: "--follow-redirects"
+    help_text: "Additional wafw00f command line options (CLI fallback only)."

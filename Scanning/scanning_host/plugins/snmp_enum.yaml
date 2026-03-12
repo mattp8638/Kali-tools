@@ -1,0 +1,35 @@
+tool_id: snmp_enum
+name: SNMP Enumeration
+description: "SNMP community probe and basic OID walk via pysnmp."
+category: OSINT
+module_path: scanning_host.tools.snmp_enum
+entry_function: run
+icon: scan
+version: "1.0.0"
+author: "Scanning App"
+requires_root: false
+tags: [snmp,service,enum]
+
+params:
+  - name: target
+    label: "Target Host"
+    param_type: string
+    required: true
+
+  - name: port
+    label: "Port"
+    param_type: integer
+    required: false
+    default: 161
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 2
+
+  - name: communities
+    label: "Communities"
+    param_type: string
+    required: false
+    default: "public,private,community,snmp"

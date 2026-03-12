@@ -1,0 +1,40 @@
+tool_id: subdomain_enum
+name: Subdomain Enumeration
+description: "Discover subdomains via DNS brute-force and certificate transparency logs."
+category: DNS Recon
+module_path: kali_host.tools.subdomain_enum
+entry_function: run
+icon: search
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, dns, subdomains, enumeration, ct]
+
+params:
+  - name: target
+    label: "Target Domain"
+    param_type: domain
+    required: true
+    placeholder: "example.com"
+    help_text: "Root domain to enumerate subdomains for"
+
+  - name: threads
+    label: "Threads"
+    param_type: integer
+    required: false
+    default: 20
+    help_text: "Number of concurrent lookup threads"
+
+  - name: timeout
+    label: "DNS Timeout (seconds)"
+    param_type: string
+    required: false
+    default: "2"
+    help_text: "Timeout for each DNS query"
+
+  - name: use_ct
+    label: "Check CT Logs"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Also check certificate transparency logs (crt.sh)"

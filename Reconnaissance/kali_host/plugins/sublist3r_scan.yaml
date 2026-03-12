@@ -1,0 +1,55 @@
+tool_id: sublist3r_scan
+name: Sublist3r (Subdomain Recon)
+description: "Fast passive subdomain enumeration using Sublist3r across multiple search engines including Google, Bing, Yahoo, VirusTotal, DNSdumpster and more."
+category: DNS Recon
+module_path: kali_host.tools.sublist3r_scan
+entry_function: run
+icon: dns
+version: "1.1.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, subdomains, passive, osint, dns, enumeration]
+
+params:
+  - name: domain
+    label: "Target Domain"
+    param_type: domain
+    required: true
+    placeholder: "example.com"
+    help_text: "Domain to enumerate subdomains for."
+
+  - name: engines
+    label: "Search Engines"
+    param_type: string
+    required: false
+    default: "all"
+    placeholder: "all  or  google,bing,virustotal"
+    help_text: "Comma-separated engines: google, bing, yahoo, baidu, ask, netcraft, dnsdumpster, virustotal, threatcrowd, ssl, passivedns. Use 'all' for everything."
+
+  - name: threads
+    label: "Brute-force Threads"
+    param_type: integer
+    required: false
+    default: 30
+    help_text: "Thread count used during brute-force enumeration."
+
+  - name: enable_bruteforce
+    label: "Enable Brute-Force Enumeration"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Enable dictionary-based brute-force in addition to passive engines."
+
+  - name: ports
+    label: "Port Scan Targets"
+    param_type: string
+    required: false
+    placeholder: "80,443"
+    help_text: "Optional comma-separated ports to scan on found subdomains."
+
+  - name: verbose
+    label: "Verbose Output"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Show verbose Sublist3r output in the console."

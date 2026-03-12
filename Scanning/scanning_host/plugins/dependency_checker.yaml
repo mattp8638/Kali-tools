@@ -1,0 +1,13 @@
+tool_id: dependency_checker
+name: Dependency Checker
+description: "Checks required CLI dependencies and resolves install paths."
+category: Custom
+module_path: scanning_host.tools.dependency_checker
+entry_function: run
+icon: scan
+version: "1.0.0"
+author: "Scanning App"
+requires_root: false
+tags: [dependencies,diagnostics,windows]
+
+params: []

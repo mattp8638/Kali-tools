@@ -1,0 +1,26 @@
+tool_id: ping_sweep
+name: Ping Sweep
+description: "Host discovery via ICMP ping. Scans IP ranges to find alive hosts."
+category: Network Discovery
+module_path: kali_host.tools.ping_sweep
+entry_function: run
+icon: network
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, network, ping, discovery, icmp]
+
+params:
+  - name: target
+    label: "Target IP / CIDR"
+    param_type: ip_range
+    required: true
+    placeholder: "192.168.1.0/24"
+    help_text: "Single IP or CIDR range to sweep"
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 1
+    help_text: "Timeout per host in seconds"

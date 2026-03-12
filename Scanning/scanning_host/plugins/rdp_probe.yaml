@@ -1,0 +1,29 @@
+tool_id: rdp_probe
+name: RDP Probe
+description: "Probe RDP service, protocol negotiation, and NLA enforcement hints."
+category: OSINT
+module_path: scanning_host.tools.rdp_probe
+entry_function: run
+icon: scan
+version: "1.0.0"
+author: "Scanning App"
+requires_root: false
+tags: [rdp,windows,service,probe]
+
+params:
+  - name: target
+    label: "Target Host"
+    param_type: string
+    required: true
+
+  - name: port
+    label: "Port"
+    param_type: integer
+    required: false
+    default: 3389
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 5

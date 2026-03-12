@@ -1,0 +1,40 @@
+tool_id: dirb_scan
+name: Directory Scan
+description: "Web directory and file brute-force for hidden paths, admin panels, and backups."
+category: Web Recon
+module_path: scanning_host.tools.dirb_scan
+entry_function: run
+icon: scan
+version: "1.0.0"
+author: "Scanning App"
+requires_root: false
+tags: [web,content-discovery,dirb]
+
+params:
+  - name: target
+    label: "Target URL/Host"
+    param_type: string
+    required: true
+    placeholder: "https://example.com"
+    help_text: "Base target URL or hostname"
+
+  - name: threads
+    label: "Threads"
+    param_type: integer
+    required: false
+    default: 20
+    help_text: "Concurrent request workers"
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 5
+    help_text: "HTTP timeout per request"
+
+  - name: wordlist
+    label: "Wordlist (comma-separated)"
+    param_type: string
+    required: false
+    placeholder: "admin,login,backup,.env"
+    help_text: "Optional custom list of paths"

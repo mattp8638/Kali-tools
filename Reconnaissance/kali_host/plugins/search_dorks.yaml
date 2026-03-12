@@ -1,0 +1,62 @@
+tool_id: search_dorks
+name: Search Dorks
+description: "Automated Google/Bing dork query generation for passive recon. Finds exposed files, admin panels, sensitive paths, and subdomains."
+category: OSINT
+module_path: kali_host.tools.search_dorks
+entry_function: run
+icon: search
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, osint, google, bing, dorking, passive, files, admin]
+
+params:
+  - name: domain
+    label: "Target Domain"
+    param_type: string
+    required: true
+    placeholder: "example.com"
+    help_text: "Domain to dork (without http://)"
+
+  - name: categories
+    label: "Dork Categories"
+    param_type: string
+    required: false
+    default: "all"
+    placeholder: "all  OR  files,admin,sensitive"
+    help_text: "Comma-separated: files, admin, sensitive, subdomains, tech, emails, cache — or 'all'"
+
+  - name: use_bing
+    label: "Search Bing"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Scrape Bing search results for each dork (Bing has friendlier TOS than Google)"
+
+  - name: max_results_per_dork
+    label: "Max Results Per Dork"
+    param_type: string
+    required: false
+    default: "5"
+    help_text: "Maximum search results to retrieve per dork query"
+
+  - name: delay
+    label: "Delay Between Requests (s)"
+    param_type: string
+    required: false
+    default: "2"
+    help_text: "Seconds to wait between Bing requests to avoid rate limiting"
+
+  - name: google_api_key
+    label: "Google CSE API Key"
+    param_type: string
+    required: false
+    placeholder: "Optional"
+    help_text: "Google Custom Search API key (alternative to Bing scraping)"
+
+  - name: google_cse_id
+    label: "Google CSE ID"
+    param_type: string
+    required: false
+    placeholder: "Optional"
+    help_text: "Google Custom Search Engine ID (required with Google API key)"

@@ -1,0 +1,38 @@
+tool_id: smb_enum
+name: SMB Enumeration
+description: "Enumerate SMB shares and host info via impacket."
+category: OSINT
+module_path: scanning_host.tools.smb_enum
+entry_function: run
+icon: scan
+version: "1.0.0"
+author: "Scanning App"
+requires_root: false
+tags: [smb,windows,enum]
+
+params:
+  - name: target
+    label: "Target Host"
+    param_type: string
+    required: true
+
+  - name: port
+    label: "Port"
+    param_type: integer
+    required: false
+    default: 445
+
+  - name: username
+    label: "Username"
+    param_type: string
+    required: false
+
+  - name: password
+    label: "Password"
+    param_type: string
+    required: false
+
+  - name: domain
+    label: "Domain"
+    param_type: string
+    required: false

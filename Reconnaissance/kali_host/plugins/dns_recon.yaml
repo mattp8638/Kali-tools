@@ -1,0 +1,33 @@
+tool_id: dns_recon
+name: DNS Recon
+description: "DNS enumeration - lookups for A, AAAA, MX, NS, TXT, SOA, CNAME records."
+category: DNS Recon
+module_path: kali_host.tools.dns_recon
+entry_function: run
+icon: dns
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, dns, enumeration, records]
+
+params:
+  - name: target
+    label: "Target Domain"
+    param_type: domain
+    required: true
+    placeholder: "example.com"
+    help_text: "Domain to query DNS records for"
+
+  - name: record_types
+    label: "Record Types"
+    param_type: string
+    required: false
+    default: "A,AAAA,MX,NS,TXT,SOA,CNAME"
+    help_text: "Comma-separated DNS record types"
+
+  - name: nameserver
+    label: "Nameserver"
+    param_type: ip_address
+    required: false
+    placeholder: "8.8.8.8"
+    help_text: "Optional DNS server to query"

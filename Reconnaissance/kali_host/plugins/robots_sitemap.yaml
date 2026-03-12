@@ -1,0 +1,40 @@
+tool_id: robots_sitemap
+name: Robots & Sitemap Parser
+description: "Passive web content discovery via robots.txt, sitemap.xml, and sitemap indexes. Extracts disallowed paths (often the most interesting), allowed paths, and all sitemap URLs."
+category: Web Recon
+module_path: kali_host.tools.robots_sitemap
+entry_function: run
+icon: map
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, web, passive, robots, sitemap, content-discovery, osint]
+
+params:
+  - name: target
+    label: "Target URL"
+    param_type: string
+    required: true
+    placeholder: "https://example.com"
+    help_text: "URL or domain to inspect (http/https added automatically)"
+
+  - name: fetch_sitemaps
+    label: "Fetch Sitemap URLs"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Download and parse sitemap.xml / sitemap_index.xml files"
+
+  - name: max_sitemap_urls
+    label: "Max Sitemap URLs"
+    param_type: string
+    required: false
+    default: "200"
+    help_text: "Maximum number of URLs to retrieve from sitemaps"
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: string
+    required: false
+    default: "10"
+    help_text: "HTTP request timeout"

@@ -1,0 +1,48 @@
+tool_id: spiderfoot_scan
+name: SpiderFoot (OSINT Framework)
+description: "Automated OSINT framework with 200+ modules. Collects intelligence on domains, IPs, emails and usernames from dozens of sources. Requires SpiderFoot to be cloned locally."
+category: OSINT
+module_path: kali_host.tools.spiderfoot_scan
+entry_function: run
+icon: spider
+version: "4.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [osint, automated, framework, spiderfoot, intelligence, domain, ip, email]
+
+params:
+  - name: target
+    label: "Target"
+    param_type: string
+    required: true
+    placeholder: "example.com or 1.2.3.4 or user@example.com"
+    help_text: "Domain, IP address, email or username to investigate."
+
+  - name: spiderfoot_path
+    label: "SpiderFoot Directory"
+    param_type: file_path
+    required: false
+    placeholder: "C:\\tools\\spiderfoot"
+    help_text: "Path to your cloned SpiderFoot directory. Leave blank for auto-detect in ~/spiderfoot."
+
+  - name: modules
+    label: "Modules"
+    param_type: string
+    required: false
+    default: "default"
+    placeholder: "default  or  sfp_dns,sfp_crt,sfp_whois"
+    help_text: "Use 'default' for a safe passive module set, or a comma-separated list of specific sfp_* module IDs."
+
+  - name: scan_name
+    label: "Scan Name"
+    param_type: string
+    required: false
+    placeholder: "MyReconScan"
+    help_text: "Optional label for this scan."
+
+  - name: timeout_minutes
+    label: "Timeout (minutes)"
+    param_type: integer
+    required: false
+    default: 10
+    help_text: "Maximum time to wait for SpiderFoot to complete."

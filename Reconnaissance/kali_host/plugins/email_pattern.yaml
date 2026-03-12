@@ -1,0 +1,40 @@
+tool_id: email_pattern
+name: Email Pattern Discovery
+description: "Discover email naming conventions for a domain (first.last@, f.last@, etc.) via Hunter.io pattern detection and permutation generation. Feeds into phishing and targeted recon."
+category: OSINT
+module_path: kali_host.tools.email_pattern
+entry_function: run
+icon: mail
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, email, osint, phishing, hunter, pattern, enumeration, social-engineering]
+
+params:
+  - name: domain
+    label: "Target Domain"
+    param_type: string
+    required: true
+    placeholder: "example.com"
+    help_text: "Domain to discover email patterns for"
+
+  - name: names
+    label: "Known Names"
+    param_type: string
+    required: false
+    placeholder: "John Smith, Jane Doe, Michael Johnson"
+    help_text: "Comma-separated full names to generate email addresses for (optional)"
+
+  - name: hunter_api_key
+    label: "Hunter.io API Key"
+    param_type: string
+    required: false
+    placeholder: "Recommended — from Settings > API Keys"
+    help_text: "Hunter.io API key for pattern detection and email finder"
+
+  - name: generate_permutations
+    label: "Generate Permutations"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Generate all email format permutations for provided names"

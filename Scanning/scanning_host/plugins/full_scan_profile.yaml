@@ -1,0 +1,150 @@
+tool_id: full_scan_profile
+name: Full Scan Profile
+description: "Orchestrates all scanning tools in sequence with skip logic and summary output."
+category: Custom
+module_path: scanning_host.tools.full_scan_profile
+entry_function: run
+icon: scan
+version: "1.0.0"
+author: "Scanning App"
+requires_root: false
+tags: [profile,orchestration,scan]
+
+params:
+  - name: target
+    label: "Primary Target"
+    param_type: string
+    required: true
+    placeholder: "example.com"
+    help_text: "Domain or host to scan"
+
+  - name: enabled_tools
+    label: "Enabled Tools"
+    param_type: string
+    required: false
+    default: "all"
+    placeholder: "all OR dependency_checker,nikto_scan,ssl_vuln_scan,..."
+    help_text: "Comma-separated tool ids or 'all'"
+
+  - name: ports
+    label: "Banner Grab Ports"
+    param_type: string
+    required: false
+    default: "21,22,25,80,110,143,443,445"
+    help_text: "TCP ports for banner_grab"
+
+  - name: nmap_vuln_ports
+    label: "Nmap Vuln Ports"
+    param_type: string
+    required: false
+    default: "1-1000"
+    help_text: "Port spec for nmap_vuln_scan"
+
+  - name: nmap_vuln_script
+    label: "Nmap Vuln Script"
+    param_type: string
+    required: false
+    default: "vuln"
+    help_text: "NSE script set (vuln recommended)"
+
+  - name: nmap_vuln_timing
+    label: "Nmap Vuln Timing (0-5)"
+    param_type: integer
+    required: false
+    default: 3
+
+  - name: nmap_vuln_timeout
+    label: "Nmap Vuln Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 900
+
+  - name: ssl_port
+    label: "SSL Scan Port"
+    param_type: integer
+    required: false
+    default: 443
+
+  - name: ssl_timeout
+    label: "SSL Scan Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 900
+
+  - name: udp_ports
+    label: "UDP Scan Ports"
+    param_type: string
+    required: false
+    default: "53,69,123,161,500,1900"
+    help_text: "UDP ports for udp_scan"
+
+  - name: local_cidr
+    label: "Local CIDR (for ARP scan)"
+    param_type: string
+    required: false
+    placeholder: "192.168.1.0/24"
+    help_text: "Required only if you want arp_scan"
+
+  - name: cve_query
+    label: "CVE Lookup Query"
+    param_type: string
+    required: false
+    default: ""
+    help_text: "Optional; if empty uses a dynamic query from banner_grab findings"
+
+  - name: cve_limit
+    label: "CVE Max Results"
+    param_type: integer
+    required: false
+    default: 10
+
+  - name: exploit_query
+    label: "Exploit Search Query"
+    param_type: string
+    required: false
+    default: ""
+    help_text: "Optional; if empty uses a dynamic query from banner_grab findings"
+
+  - name: nuclei_severity
+    label: "Nuclei Severity Filter"
+    param_type: string
+    required: false
+    placeholder: "critical,high,medium,low"
+    help_text: "Optional severity filter for nuclei"
+
+  - name: snmp_communities
+    label: "SNMP Communities"
+    param_type: string
+    required: false
+    default: "public,private"
+    help_text: "Comma-separated community strings"
+
+  - name: smb_username
+    label: "SMB Username"
+    param_type: string
+    required: false
+    help_text: "Optional SMB credential user"
+
+  - name: smb_password
+    label: "SMB Password"
+    param_type: string
+    required: false
+    help_text: "Optional SMB credential password"
+
+  - name: smb_domain
+    label: "SMB Domain"
+    param_type: string
+    required: false
+    help_text: "Optional SMB domain"
+
+  - name: rdp_port
+    label: "RDP Port"
+    param_type: integer
+    required: false
+    default: 3389
+
+  - name: rdp_timeout
+    label: "RDP Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 5

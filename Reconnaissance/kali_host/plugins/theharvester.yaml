@@ -1,0 +1,55 @@
+tool_id: theharvester
+name: theHarvester
+description: "OSINT tool for gathering emails, subdomains, hosts, IPs, and URLs from public sources (Google, Bing, Shodan, etc.)"
+category: OSINT
+module_path: kali_host.tools.theharvester
+entry_function: run
+icon: search
+version: "4.0.0"
+author: "Christian Martorella / Edge-Security"
+requires_root: false
+tags: [osint, emails, reconnaissance, passive, intelligence]
+
+params:
+  - name: target
+    label: "Target Domain"
+    param_type: domain
+    required: true
+    placeholder: "example.com"
+    help_text: "Domain to gather information about"
+
+  - name: sources
+    label: "Data Sources"
+    param_type: string
+    required: true
+    default: "all"
+    placeholder: "all, google, bing, shodan"
+    help_text: "Data sources: all, baidu, bing, brave, duckduckgo, google, yahoo, hunter, shodan, virustotal, certspotter, crtsh, dnsdumpster, hackertarget, otx, rapiddns, threatcrowd, urlscan"
+
+  - name: limit
+    label: "Result Limit"
+    param_type: integer
+    required: false
+    default: 500
+    help_text: "Limit the number of search results"
+
+  - name: dns_lookup
+    label: "Perform DNS Lookups"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Perform DNS lookups on discovered hosts"
+
+  - name: use_shodan
+    label: "Use Shodan"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Query Shodan for discovered hosts (requires API key in Settings)"
+
+  - name: take_screenshots
+    label: "Take Screenshots"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Take screenshots of resolved domains (requires additional dependencies)"

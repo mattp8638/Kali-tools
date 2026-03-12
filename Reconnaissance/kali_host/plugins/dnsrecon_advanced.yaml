@@ -1,0 +1,75 @@
+tool_id: dnsrecon_advanced
+name: dnsrecon (Advanced DNS)
+description: "Advanced DNS enumeration, zone transfers and brute-force using dnsrecon."
+category: DNS Recon
+module_path: kali_host.tools.dnsrecon_advanced
+entry_function: run
+icon: dns
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [dns, recon, brute-force, zone-transfer]
+
+params:
+  - name: domain
+    label: "Target Domain"
+    param_type: domain
+    required: true
+    placeholder: "example.com"
+    help_text: "Domain to enumerate."
+
+  - name: brute_force
+    label: "Enable Brute Force"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Use dictionary-based subdomain brute forcing."
+
+  - name: wordlist
+    label: "Brute Force Wordlist"
+    param_type: file_path
+    required: false
+    placeholder: "/path/to/wordlist.txt"
+    help_text: "Custom wordlist for -D (optional)."
+
+  - name: zone_transfer
+    label: "Attempt Zone Transfers (-a)"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Try AXFR transfers from name servers."
+
+  - name: std
+    label: "Standard Enumeration (-t std)"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Basic record enumeration."
+
+  - name: bing
+    label: "Use Bing (-t bing)"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Use Bing for additional host discovery."
+
+  - name: google
+    label: "Use Google (-t google)"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Use Google for additional host discovery."
+
+  - name: wildcard
+    label: "Check Wildcard (-w)"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Detect wildcard DNS."
+
+  - name: extra_args
+    label: "Extra Arguments"
+    param_type: string
+    required: false
+    placeholder: "-n 8.8.8.8"
+    help_text: "Additional dnsrecon CLI args."

@@ -1,0 +1,47 @@
+tool_id: whatweb_scan
+name: WhatWeb
+description: "Fingerprint web technologies, frameworks and CMS using WhatWeb."
+category: Web Recon
+module_path: kali_host.tools.whatweb_scan
+entry_function: run
+icon: globe
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [web, fingerprint, cms, recon]
+
+params:
+  - name: url
+    label: "Target URL"
+    param_type: string
+    required: true
+    placeholder: "https://example.com"
+    help_text: "Full URL of the web application."
+
+  - name: aggressive
+    label: "Aggressive Detection (-a 3)"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Use more in-depth fingerprinting."
+
+  - name: follow_redirects
+    label: "Follow Redirects (-r)"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Follow HTTP redirects."
+
+  - name: user_agent
+    label: "Custom User-Agent"
+    param_type: string
+    required: false
+    placeholder: "Mozilla/5.0 ..."
+    help_text: "Override default User-Agent header."
+
+  - name: extra_args
+    label: "Extra Arguments"
+    param_type: string
+    required: false
+    placeholder: "--timeout 10"
+    help_text: "Additional WhatWeb command line flags."

@@ -1,0 +1,30 @@
+tool_id: nuclei_scan
+name: Nuclei Scan
+description: "Template-based CVE/misconfiguration scan via Nuclei CLI wrapper."
+category: Web Recon
+module_path: scanning_host.tools.nuclei_scan
+entry_function: run
+icon: scan
+version: "1.0.0"
+author: "Scanning App"
+requires_root: false
+tags: [web,vuln,nuclei]
+
+params:
+  - name: target
+    label: "Target URL"
+    param_type: string
+    required: true
+    placeholder: "https://example.com"
+
+  - name: severity
+    label: "Severity Filter"
+    param_type: string
+    required: false
+    placeholder: "critical,high,medium,low"
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 900

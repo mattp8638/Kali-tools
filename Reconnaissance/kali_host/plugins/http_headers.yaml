@@ -1,0 +1,19 @@
+tool_id: http_headers
+name: HTTP Header Analysis
+description: "Analyse HTTP response headers for security configuration, technology fingerprinting, and missing protections."
+category: Web Recon
+module_path: kali_host.tools.http_headers
+entry_function: run
+icon: web
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, web, headers, security, fingerprint]
+
+params:
+  - name: target
+    label: "Target URL"
+    param_type: string
+    required: true
+    placeholder: "https://example.com"
+    help_text: "URL or domain to analyse headers"

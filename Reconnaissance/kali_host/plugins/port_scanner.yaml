@@ -1,0 +1,41 @@
+tool_id: port_scanner
+name: Port Scanner
+description: "TCP port scanner with banner grabbing and service detection."
+category: Port Scanning
+module_path: kali_host.tools.port_scanner
+entry_function: run
+icon: scan
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [recon, ports, tcp, scanner, services]
+
+params:
+  - name: target
+    label: "Target Host"
+    param_type: string
+    required: true
+    placeholder: "192.168.1.1 or example.com"
+    help_text: "IP address or hostname to scan"
+
+  - name: ports
+    label: "Ports"
+    param_type: string
+    required: false
+    default: "top100"
+    placeholder: "top100, 1-1024, 80,443,8080"
+    help_text: "Port specification: top100, range (1-1024), or comma-separated"
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: string
+    required: false
+    default: "1"
+    help_text: "Connection timeout per port"
+
+  - name: threads
+    label: "Threads"
+    param_type: integer
+    required: false
+    default: 50
+    help_text: "Number of concurrent scan threads"

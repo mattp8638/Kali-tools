@@ -1,0 +1,68 @@
+tool_id: email_osint
+name: Email OSINT
+description: "Deep email address reconnaissance: DNS (MX/SPF/DMARC/DKIM), BreachDirectory breach check, Hunter.io domain search, certificate transparency, social presence signals and Shodan mail server lookup."
+category: OSINT
+module_path: kali_host.tools.email_osint
+entry_function: run
+icon: mail
+version: "1.0.0"
+author: "Kali App Host"
+requires_root: false
+tags: [osint, email, breach, dns, breachdirectory, hunter, recon, social]
+
+params:
+  - name: email
+    label: "Target Email Address"
+    param_type: string
+    required: true
+    placeholder: "target@example.com"
+    help_text: "Full email address to investigate."
+
+  - name: check_dns
+    label: "DNS Recon (MX/SPF/DMARC/DKIM)"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Query DNS records for the email domain."
+
+  - name: check_breaches
+    label: "Breach Check (BreachDirectory)"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Check BreachDirectory for known breaches (free, no API key required)."
+
+  - name: check_ct
+    label: "Certificate Transparency (crt.sh)"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Query crt.sh for subdomains and certificates on the email domain."
+
+  - name: check_social
+    label: "Social & Paste Signals"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Check GitHub, Gravatar, Keybase and HackerNews for username presence."
+
+  - name: breachdirectory_api_key
+    label: "BreachDirectory API Key (optional)"
+    param_type: string
+    required: false
+    placeholder: "leave-blank-for-free-access"
+    help_text: "BreachDirectory API key (optional - free access available without key)."
+
+  - name: hunter_api_key
+    label: "Hunter.io API Key (optional)"
+    param_type: string
+    required: false
+    placeholder: "your-hunter-api-key"
+    help_text: "Enables Hunter.io domain search for all emails on the target domain."
+
+  - name: shodan_api_key
+    label: "Shodan API Key (optional)"
+    param_type: string
+    required: false
+    placeholder: "your-shodan-api-key"
+    help_text: "Enables Shodan lookup on discovered mail server IPs."

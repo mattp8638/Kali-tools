@@ -1,0 +1,54 @@
+tool_id: sherlock
+name: Sherlock
+description: "Hunt down social media accounts by username across 300+ platforms including Facebook, Twitter, Instagram, GitHub, and more"
+category: OSINT
+module_path: kali_host.tools.sherlock
+entry_function: run
+icon: user-search
+version: "0.14.0"
+author: "Sherlock Project"
+requires_root: false
+tags: [osint, social-media, username, reconnaissance, investigation]
+
+params:
+  - name: username
+    label: "Username"
+    param_type: string
+    required: true
+    placeholder: "johndoe"
+    help_text: "Username to search for across platforms"
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 60
+    help_text: "Timeout for each site request"
+
+  - name: proxy
+    label: "Proxy URL"
+    param_type: string
+    required: false
+    placeholder: "socks5://127.0.0.1:1080"
+    help_text: "Proxy to use for requests (optional)"
+
+  - name: platforms
+    label: "Specific Platforms"
+    param_type: string
+    required: false
+    placeholder: "GitHub,Twitter,Instagram"
+    help_text: "Comma-separated list of specific platforms to check (leave empty for all)"
+
+  - name: csv_output
+    label: "Generate CSV Report"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Save results to CSV file"
+
+  - name: print_found
+    label: "Show Only Found"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Only display platforms where username was found"

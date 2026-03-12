@@ -1,0 +1,68 @@
+tool_id: dnsenum
+name: DNSenum
+description: "Advanced DNS enumeration - performs zone transfers, subdomain brute-forcing, Google scraping, reverse lookups, and WHOIS queries"
+category: DNS Recon
+module_path: kali_host.tools.dnsenum
+entry_function: run
+icon: dns
+version: "1.2.6"
+author: "Filip Waeytens"
+requires_root: false
+tags: [dns, enumeration, zone-transfer, subdomains, reconnaissance]
+
+params:
+  - name: target
+    label: "Target Domain"
+    param_type: domain
+    required: true
+    placeholder: "example.com"
+    help_text: "Domain to enumerate"
+
+  - name: nameserver
+    label: "DNS Server"
+    param_type: ip_address
+    required: false
+    placeholder: "8.8.8.8"
+    help_text: "DNS server to use for queries (optional)"
+
+  - name: threads
+    label: "Threads"
+    param_type: integer
+    required: false
+    default: 5
+    help_text: "Number of threads for subdomain brute-forcing"
+
+  - name: subdomains
+    label: "Subdomain Attempts"
+    param_type: integer
+    required: false
+    default: 1000
+    help_text: "Number of subdomains to try from wordlist"
+
+  - name: zone_transfer
+    label: "Attempt Zone Transfer"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Attempt DNS zone transfer (AXFR)"
+
+  - name: google_scrape
+    label: "Google Scraping"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Use Google to discover subdomains"
+
+  - name: whois
+    label: "WHOIS Queries"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Perform WHOIS queries on discovered servers"
+
+  - name: reverse_lookup
+    label: "Reverse Lookups"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Perform reverse DNS lookups on discovered IPs"

@@ -1,0 +1,82 @@
+tool_id: nmap_scanner
+name: Nmap Scanner
+description: "Advanced network port scanner with service detection, OS fingerprinting, and NSE scripts"
+category: Port Scanning
+module_path: kali_host.tools.nmap_scanner
+entry_function: run
+icon: network
+version: "7.94"
+author: "Gordon Lyon (Fyodor)"
+requires_root: true
+tags: [scanning, ports, services, os-detection, network]
+
+params:
+  - name: target
+    label: "Target"
+    param_type: string
+    required: true
+    placeholder: "192.168.1.0/24 or example.com"
+    help_text: "Target IP, hostname, or CIDR range"
+
+  - name: scan_type
+    label: "Scan Type"
+    param_type: choice
+    required: true
+    default: "syn"
+    choices:
+      - syn
+      - tcp
+      - udp
+      - version
+      - os
+    help_text: "Type of scan to perform"
+
+  - name: ports
+    label: "Ports"
+    param_type: string
+    required: false
+    default: "1-1000"
+    placeholder: "1-1000 or 80,443,8080"
+    help_text: "Port specification (range or comma-separated)"
+
+  - name: timing
+    label: "Timing Template"
+    param_type: choice
+    required: false
+    default: "3"
+    choices:
+      - "0"
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+    help_text: "0=Paranoid, 1=Sneaky, 2=Polite, 3=Normal, 4=Aggressive, 5=Insane"
+
+  - name: scripts
+    label: "NSE Scripts"
+    param_type: string
+    required: false
+    placeholder: "vuln,exploit"
+    help_text: "NSE scripts to run (comma-separated or category)"
+
+  - name: os_detection
+    label: "OS Detection"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Enable OS fingerprinting (may require root)"
+
+  - name: service_detection
+    label: "Service Detection"
+    param_type: boolean
+    required: false
+    default: true
+    help_text: "Probe open ports to determine service/version info"
+
+  - name: aggressive
+    label: "Aggressive Scan"
+    param_type: boolean
+    required: false
+    default: false
+    help_text: "Enable OS detection, version detection, script scanning, and traceroute"

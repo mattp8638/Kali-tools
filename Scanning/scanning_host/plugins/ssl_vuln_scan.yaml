@@ -1,0 +1,30 @@
+tool_id: ssl_vuln_scan
+name: SSL Vulnerability Scan
+description: "Checks TLS/SSL protocol and cipher vulnerabilities using nmap scripts."
+category: Vulnerability
+module_path: scanning_host.tools.ssl_vuln_scan
+entry_function: run
+icon: scan
+version: "1.0.0"
+author: "Scanning App"
+requires_root: false
+tags: [ssl,tls,vulnerability]
+
+params:
+  - name: target
+    label: "Target Host"
+    param_type: string
+    required: true
+    placeholder: "example.com"
+
+  - name: port
+    label: "Port"
+    param_type: integer
+    required: false
+    default: 443
+
+  - name: timeout
+    label: "Timeout (seconds)"
+    param_type: integer
+    required: false
+    default: 900
